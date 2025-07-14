@@ -3,9 +3,8 @@ import joblib
 from groq import Groq
 
 import os
-#https://console.groq.com/keys
 # Get the key from environment
-api_key = os.getenv('groq')
+os.environ['GROQ_API_KEY'] = os.getenv('groq')
 
 app = Flask(__name__)
 

@@ -4,12 +4,8 @@ from groq import Groq
 
 import os
 #https://console.groq.com/keys
-with open("/etc/secrets/groq_key.txt", "r") as file:
-    api_key = file.read().strip()
-
-# Set the environment variable
-os.environ["GROQ_API_KEY"] = api_key
-# for cloud .......
+# Get the key from environment
+api_key = os.getenv('groq')
 
 app = Flask(__name__)
 

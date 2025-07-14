@@ -4,7 +4,7 @@ from groq import Groq
 
 import os
 #https://console.groq.com/keys
-with open("/etc/secrets/groq_api_key.txt", "r") as file:
+with open("/etc/secrets/groq_key.txt", "r") as file:
     api_key = file.read().strip()
 
 # Set the environment variable

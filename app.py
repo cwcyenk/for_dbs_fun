@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import joblib
 from groq import Groq
-import request
+import requests
 
 import os
 # Get the key from environment

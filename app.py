@@ -6,7 +6,7 @@ import requests
 import os
 # Get the key from environment
 os.environ['GROQ_API_KEY'] = os.getenv('groq')
-os.environ['TELEGRAM_BOT_KEY'] = os.getenv('TELEGRAM_BOT_KEY')
+os.environ['TELEGRAM_BOT_TOKEN'] = os.getenv('TELEGRAM_BOT_KEY')
 
 app = Flask(__name__)
 
@@ -35,11 +35,11 @@ def deepseek():
 def telegram():
     domain_url = "https://for-dbs-fun-1.onrender.com"
 
-    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_KEY}/deleteWebhook" 
+    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteWebhook" 
     requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
 
     # Set the webhook URL for the Telegram bot
-    set_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_KEY}/setWebhook?url={domain_url}/webhook"
+    set_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/setWebhook?url={domain_url}/webhook"
     webhook_response = requests.post(set_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
 
     if webhook_response.status_code == 200:

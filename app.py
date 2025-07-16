@@ -114,11 +114,6 @@ def deepseek_reply():
     )
     return(render_template("deepseek_reply.html", r=completion_ds.choices[0].message.content))
 
-#@app.route("/prediction",methods=["GET","POST"])
-#def prediction():
-#    q = float(request.form.get("q"))
-#    return(render_template("prediction.html",r=(-50.6*q)+90.2))
-
 @app.route("/webhook",methods=["GET","POST"])
 def webhook():
 

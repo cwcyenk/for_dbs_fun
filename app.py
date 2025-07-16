@@ -35,7 +35,8 @@ def deepseek():
 def telegram():
     domain_url = "https://for-dbs-fun-1.onrender.com"
 
-    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteWebhook" 
+    # The following line is used to delete the existing webhook URL for the Telegram bot
+    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteWebhook"
     requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
 
     # Set the webhook URL for the Telegram bot

@@ -29,6 +29,11 @@ def deepseek():
     q = request.form.get("q")
     return(render_template("deepseek.html"))
 
+@app.route("/telegram",methods=["GET","POST"])
+def telegram():
+    q = request.form.get("q")
+    return(render_template("telegram.html"))
+
 @app.route("/dbs",methods=["GET","POST"])
 def dbs():
     q = request.form.get("q")

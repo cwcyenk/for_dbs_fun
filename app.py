@@ -50,6 +50,25 @@ def telegram():
         status = "Failed to start the telegram bot. Please check the logs."
     return(render_template("telegram.html", status=status))
 
+@app.route("/stop_telegram",methods=["GET","POST"])
+def stop_telegram():
+    domain_url = "https://for-dbs-fun-1.onrender.com"
+
+    # The following line is used to delete the existing webhook URL for the Telegram bot
+    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteWebhook"
+    webhook_response = requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
+
+    # Set the webhook URL for the Telegram bot
+    set_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/setWebhook?url={domain_url}/webhook"
+    webhook_response = requests.post(set_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
+
+    if webhook_response.status_code == 200:
+        # set status message
+        status = "The telegram bot is running. Please check with the telegram bot. @dsai_hamster_ft1_bot"
+    else:
+        status = "Failed to start the telegram bot. Please check the logs."
+    return(render_template("telegram.html", status=status))
+
 @app.route("/dbs",methods=["GET","POST"])
 def dbs():
     q = request.form.get("q")

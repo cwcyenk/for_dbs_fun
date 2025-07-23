@@ -10,6 +10,9 @@ import os
 os.environ['GROQ_API_KEY'] = os.getenv('groq')
 TELEGRAM_BOT_TOKEN = os.getenv("telegram")
 
+conn = sqlite3.connect('user.db')
+conn.execute('CREATE TABLE user (name text, timestamp timestamp)')
+conn.close()
 
 app = Flask(__name__)
 

@@ -1,15 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',
-        filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-    <h2>Welcome to DSAI chatbot</h2>
-        <form action="/write_log" method="post">
-            <p>Please enter your name</p>
-            <input type="text" name="q">
-            <input type="submit" value="Enter">
-        </form>
+    <gradio-app src="https://cwcyenk-sepia.hf.space"></gradio-app>
+
+    <script
+	type="module"
+	src="https://gradio.s3-us-west-2.amazonaws.com/5.38.1/gradio.js"
+></script>
+
+<gradio-app src="https://cwcyenk-sepia.hf.space"></gradio-app>
 </body>
+</html>

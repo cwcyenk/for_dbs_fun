@@ -104,6 +104,10 @@ def telegram():
         status = "Failed to start the telegram bot. Please check the logs."
     return(render_template("telegram.html", status=status))
 
+@app.route("/sepia",methods=["GET","POST"])
+def sepia():
+    return(render_template("sepia_hf.html"))
+    
 @app.route("/webhook",methods=["GET","POST"])
 def webhook():
 
